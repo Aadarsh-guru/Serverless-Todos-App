@@ -1,0 +1,18 @@
+service: express-app
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  timeout: 10
+  region: ap-south-1
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  handler:
+    handler: src/index.handler
+    events:
+      - httpApi: "*"
